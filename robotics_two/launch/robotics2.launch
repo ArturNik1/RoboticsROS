@@ -1,0 +1,37 @@
+<launch>
+
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/our_world.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+
+  <include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch">
+    <arg name="map_file" value="$(env HOME)/map.yaml" />
+    <arg name="open_rviz" value="false" />
+  </include>
+
+
+ <node name="environment_functions" pkg="robotics_two" type="environment_functions.py" />
+ <node pkg="robotics_two" type="environment_functions.py" name="spawn_model" args="spawn_model"/>
+
+ <!-- <node name="turtlebot3_functions" pkg="robotics_two" type="turtlebot3_functions.py" />  -->
+ <node name="turtlebot3_log" pkg="robotics_two" type="turtlebot3_log.py" />
+
+
+
+</launch>

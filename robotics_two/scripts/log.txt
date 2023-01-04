@@ -1,0 +1,19 @@
+rosservice call /turtlebot3_skills_server/sense_pose
+rosservice call /turtlebot3_skills_server/sense_objects
+rosservice call /turtlebot3_skills_server/move_to '[4.18757, 0.41815199999999997, 1.0]'
+rosservice call /turtlebot3_skills_server/pick_object red_ball0 '[4.18757, 0.568152, 1.0]'
+rosservice call /turtlebot3_skills_server/move_to '[2.0, 0.0, 1.0]'
+rosservice call /turtlebot3_skills_server/place_object red_ball0 '[1.711, 0.236, 0.05]'
+rosservice call /turtlebot3_skills_server/move_to '[5.27305, -0.168508, 1.0]'
+rosservice call /turtlebot3_skills_server/pick_object red_ball1 '[5.42305, -0.168508, 1.0]'
+rosservice call /turtlebot3_skills_server/move_to '[2.0, 0.0, 1.0]'
+rosservice call /turtlebot3_skills_server/place_object red_ball1 '[1.884, 0.268, 0.05]'
+rosservice call /turtlebot3_skills_server/move_to '[4.01908, -1.31487, 1.0]'
+rosservice call /turtlebot3_skills_server/pick_object red_ball2 '[3.86908, -1.46487, 1.0]'
+rosservice call /turtlebot3_skills_server/move_to '[2.0, 0.0, 1.0]'
+rosservice call /turtlebot3_skills_server/place_object red_ball2 '[1.763, 0.165, 0.05]'
+rosservice call /turtlebot3_skills_server/move_to '[2.73808, 0.48142699999999994, 1.0]'
+rosservice call /turtlebot3_skills_server/pick_object red_ball3 '[2.73808, 0.631427, 1.0]'
+rosservice call /turtlebot3_skills_server/move_to '[2.0, 0.0, 1.0]'
+rosservice call /turtlebot3_skills_server/place_object red_ball3 '[1.837, 0.336, 0.05]'
+rosservice call /turtlebot3_skills_server/sense_objects
