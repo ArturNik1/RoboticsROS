@@ -1,0 +1,5 @@
+Location location
+string letter
+Color color
+---
+int64 flag
